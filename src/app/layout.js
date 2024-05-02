@@ -1,7 +1,4 @@
-// import { Inter } from "next/font/google";
 import "./globals.css";
-
-// const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "ChannaMart",
@@ -11,7 +8,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="id">
-      <body className="font-prodigy text-black bg-white">{children}</body>
+      <body className="text-black bg-white">{children}</body>
     </html>
   );
 }

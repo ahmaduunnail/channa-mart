@@ -1,7 +1,16 @@
 import Image from "next/image";
 import React from "react";
+import Background from "../../public/card-ornamen.svg";
 
-export default function Card() {
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardTitle,
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+
+export default function CardOverview() {
   const apa = [
     { src: "handshake.svg", desc: "Kualitas dan keamanan terjamin." },
     { src: "clipboard.svg", desc: "Lihat record kemenangan ikan." },
@@ -12,8 +21,8 @@ export default function Card() {
   const Value = ({ nama, desc }) => {
     return (
       <>
-        <div className="flex-row max-w-36">
-          <div className="block">
+        <div className="flex-row max-w-44">
+          <div className="block h-28 w-28">
             <Image
               src={"/" + `${nama}`}
               width={150}
@@ -21,7 +30,7 @@ export default function Card() {
               className="w-fit"
             />
           </div>
-          <p className="font-prodigy font-normal text-2xl mt-3">{`${desc}`}</p>
+          <p className="font-prodigy font-normal text-2xl">{`${desc}`}</p>
         </div>
       </>
     );
@@ -29,38 +38,34 @@ export default function Card() {
 
   return (
     <>
-      <div className="flex relative justify-between bg-white border-neutral rounded-[64px] gap-52 overflow-hidden border-4 -translate-y-20 p-28 shadow-xl">
-        <div className="absolute h-full w-full top-0 left-0 -z-10">
-          <Image
-            src="/card-ornamen.svg"
-            fill={true}
-            className="select-none pointer-events-none"
-          />
-        </div>
+      <Card
+        className="flex justify-between bg-white border-neutral rounded-[64px] gap-52 overflow-hidden border-4 -translate-y-20 p-28 shadow-xl smooth-corner bg-origin-border bg-no-repeat bg-cover"
+        style={{ backgroundImage: `url(${Background.src})` }}
+      >
         <div className="start-0 top-0">
-          <h2 className="text-[64px] font-medium">
+          <CardTitle className="text-[64px] font-medium">
             Dari Penggemar <br /> Ikan Channa,
             <br /> Untuk Komunitas
-          </h2>
-          <p className="text-[32px] font-light">
+          </CardTitle>
+          <CardDescription className="text-[32px] font-light">
             Value yang kami berikan
             <br />
             untuk anda.
-          </p>
+          </CardDescription>
 
-          <button className="flex justify-between gap-4 px-[24px] py-[16px] text-[24px] bg-white rounded-3xl border-black border-[3px] mt-[45px]">
+          <Button className="flex justify-center items-center gap-4 px-6 py-8 text-[24px] bg-white rounded-3xl border-black border-4 mt-[45px]">
             Pelajari Tentang Kami
             <Image src="/arrow.svg" width={37} height={37} />
-          </button>
+          </Button>
         </div>
-        <div className="end-0 bottom-0 grid grid-cols-3 gap-14 justify-between mt-28">
+        <CardContent className="end-0 bottom-0 grid grid-cols-3 gap-14 justify-between mt-28">
           {apa.map((item, _) => (
             <>
               <Value nama={item.src} desc={item.desc} />
             </>
           ))}
-        </div>
-      </div>
+        </CardContent>
+      </Card>
     </>
   );
 }

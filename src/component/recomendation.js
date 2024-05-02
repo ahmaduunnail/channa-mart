@@ -83,14 +83,8 @@ export default function Recomendation() {
 
   return (
     <>
-      <div className="flex relative flex-col px-10">
-        <div className="absolute h-full w-full top-0 left-0 -z-10">
-          <Image
-            src="/recomendation-ornamen.svg"
-            fill={true}
-            className="object-contain select-none pointer-events-none"
-          />
-        </div>
+      <div
+        className="flex flex-col px-10">
         <div className="flex justify-evenly items-center gap-96 my-14">
           <h2 className="start-0 text-7xl">Rekomendasi Ikan Terbaik Harian</h2>
           <p className="end-0 text-3xl font-light">

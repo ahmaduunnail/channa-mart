@@ -1,7 +1,15 @@
+"use client";
 import Image from "next/image";
 import React from "react";
 
+import { Button } from "@/components/ui/button";
+
 export default function Banner() {
+  const scrollToOverview = () => {
+    const a = document.getElementById("overview");
+    a.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <>
       <div className="flex relative justify-between px-8 py-20 mb-40">
@@ -13,9 +21,17 @@ export default function Banner() {
             className="select-none pointer-events-none"
           />
         </div>
-        <a className="absolute bottom-0 left-[50%] bg-white z-20 rounded-full border-black border-[3px]" href="#overview">
-          <Image src="/arrow.svg" width={37} height={37} className="rotate-90 mx-4 my-9"/>
-        </a>
+        <Button
+          className="absolute bottom-0 left-[50%] px-4 py-14 bg-white z-20 rounded-full border-black border-4"
+          onClick={scrollToOverview}
+        >
+          <Image
+            src="/arrow.svg"
+            width={37}
+            height={37}
+            className="rotate-90"
+          />
+        </Button>
         <div className="z-10">
           <div className="relative">
             <Image
@@ -31,7 +47,7 @@ export default function Banner() {
               Ikan Channa
             </h1>
             <Image
-              className="absolute right-0 bottom-0 select-none pointer-events-none"
+              className="absolute right-0 -bottom-5 select-none pointer-events-none"
               src="/ornamen-2.svg"
               width={274}
               height={26.5}
@@ -39,13 +55,13 @@ export default function Banner() {
             />
           </div>
 
-          <p className="text-[32px]">
+          <p className="text-[32px] mt-8">
             Ubah pengalaman lelang Ikan Channa anda,
             <br /> dengan satu klik.
           </p>
-          <button className="px-[46px] py-[17px] text-[24px] bg-primary rounded-3xl border-white border-[3px] mt-[38px] font-bold">
+          <Button className="flex justify-center px-11 py-8 text-2xl bg-primary rounded-3xl border-white border-4 mt-[38px] font-bold items-center">
             Mulai Sekarang
-          </button>
+          </Button>
         </div>
         <div className="z-10">
           <Image src="/banner.png" width={812} height={599} quality={100} />
